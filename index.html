@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jose Luis Sarabia — CV</title>
+
+<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="vendor/bootstrap-icons/font/bootstrap-icons.min.css">
+
+<style>
+    :root {
+        --navy: #1c2b3a;
+        --navy-deep: #12202c;
+        --accent: #d98b3c;
+        --accent-soft: #f3d9b8;
+        --paper: #faf7f2;
+        --ink: #2b2b2b;
+    }
+
+    body {
+        font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        color: var(--ink);
+        background-color: var(--paper);
+    }
+
+    h1, h2, h3, .brand, .nav-link {
+        font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        letter-spacing: -.01em;
+    }
+
+    .navbar {
+        background-color: var(--navy);
+    }
+
+    .navbar .navbar-brand,
+    .navbar .nav-link {
+        color: #fff;
+    }
+
+    .navbar .nav-link:hover,
+    .navbar .nav-link:focus {
+        color: var(--accent-soft);
+    }
+
+    .navbar .nav-link.active {
+        color: var(--accent);
+        font-weight: 600;
+    }
+
+    section {
+        scroll-margin-top: 80px;
+    }
+
+    .hero {
+        background: linear-gradient(135deg, var(--navy) 0%, var(--navy-deep) 100%);
+        color: #fff;
+        padding: 5.5rem 0 4.5rem;
+    }
+
+    .hero .eyebrow {
+        color: var(--accent);
+        letter-spacing: .08em;
+        text-transform: uppercase;
+        font-weight: 600;
+        font-size: .85rem;
+    }
+
+    .hero h1 {
+        font-weight: 700;
+        font-size: clamp(2rem, 4vw, 3rem);
+    }
+
+    .hero .lead {
+        color: #d7dee6;
+        max-width: 46rem;
+    }
+
+    .avatar-ring {
+        width: 168px;
+        height: 168px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--accent), var(--accent-soft));
+        padding: 6px;
+        margin: 0 auto;
+    }
+
+    .avatar-ring .avatar-inner {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background: var(--navy-deep);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--accent-soft);
+        font-family: 'Poppins', sans-serif;
+        font-weight: 700;
+        font-size: 3rem;
+        overflow: hidden;
+    }
+
+    .avatar-ring .avatar-inner img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .btn-accent {
+        background-color: var(--accent);
+        border-color: var(--accent);
+        color: #fff;
+        font-weight: 600;
+    }
+
+    .btn-accent:hover {
+        background-color: #c17a2e;
+        border-color: #c17a2e;
+        color: #fff;
+    }
+
+    .btn-outline-light-accent {
+        border: 1.5px solid var(--accent-soft);
+        color: #fff;
+        font-weight: 600;
+    }
+
+    .btn-outline-light-accent:hover {
+        background-color: var(--accent-soft);
+        color: var(--navy-deep);
+    }
+
+    .section-title {
+        font-weight: 700;
+        color: var(--navy);
+        margin-bottom: .35rem;
+    }
+
+    .section-kicker {
+        color: var(--accent);
+        text-transform: uppercase;
+        letter-spacing: .08em;
+        font-size: .8rem;
+        font-weight: 600;
+    }
+
+    .card-soft {
+        background: #fff;
+        border: 1px solid #ece4d8;
+        border-radius: .75rem;
+        box-shadow: 0 2px 14px rgba(28, 43, 58, .05);
+        height: 100%;
+    }
+
+    .skill-badge {
+        display: inline-block;
+        background-color: #eef1f4;
+        color: var(--navy);
+        border-radius: 2rem;
+        padding: .35rem .85rem;
+        margin: .2rem .25rem .2rem 0;
+        font-size: .85rem;
+        font-weight: 500;
+    }
+
+    .skill-card-icon {
+        width: 46px;
+        height: 46px;
+        border-radius: .6rem;
+        background-color: var(--navy);
+        color: var(--accent-soft);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.3rem;
+    }
+
+    .timeline {
+        border-left: 3px solid var(--accent-soft);
+        margin-left: .5rem;
+        padding-left: 1.75rem;
+    }
+
+    .timeline-item {
+        position: relative;
+        padding-bottom: 2.25rem;
+    }
+
+    .timeline-item:last-child {
+        padding-bottom: 0;
+    }
+
+    .timeline-item::before {
+        content: "";
+        position: absolute;
+        left: -2.05rem;
+        top: .3rem;
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background-color: var(--accent);
+        border: 3px solid var(--paper);
+    }
+
+    .timeline-role {
+        font-weight: 600;
+        color: var(--navy);
+    }
+
+    .timeline-meta {
+        color: #7a7a7a;
+        font-size: .88rem;
+    }
+
+    .project-card img {
+        height: 190px;
+        object-fit: cover;
+    }
+
+    .project-card .tag {
+        font-size: .75rem;
+        background-color: var(--accent-soft);
+        color: var(--navy-deep);
+        border-radius: 1rem;
+        padding: .2rem .6rem;
+        margin: .15rem .2rem .15rem 0;
+        display: inline-block;
+    }
+
+    footer {
+        background-color: var(--navy-deep);
+        color: #cfd6dc;
+    }
+
+    footer a {
+        color: var(--accent-soft);
+        text-decoration: none;
+    }
+
+    footer a:hover {
+        color: #fff;
+        text-decoration: underline;
+    }
+
+    .contact-icon {
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        background-color: rgba(255,255,255,.08);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--accent-soft);
+    }
+</style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container">
+        <a class="navbar-brand fw-semibold" href="#top">JL Sarabia</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navMenu">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+                <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+                <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<header id="top" class="hero">
+    <div class="container">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-8">
+                <div class="eyebrow mb-2">Software Engineering &middot; Project Management</div>
+                <h1 class="mb-3">Jose Luis Sarabia</h1>
+                <p class="lead mb-4">
+                    Building software with the same discipline I used to build projects — turning
+                    Python, Django, and databases into practical solutions, backed by years of
+                    managing budgets, teams, and operations.
+                </p>
+                <div class="d-flex flex-wrap gap-3">
+                    <a href="#projects" class="btn btn-accent btn-lg px-4">View my work</a>
+                    <a href="#contact" class="btn btn-outline-light-accent btn-lg px-4">Get in touch</a>
+                </div>
+            </div>
+            <div class="col-lg-4 text-center">
+                <div class="avatar-ring">
+                    <div class="avatar-inner">
+                        <!-- Optional: replace this initials block with
+                             <img src="images/profile.jpg" alt="Jose Luis Sarabia"> -->
+                        JLS
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main>
+
+<section id="about" class="py-5 py-lg-6">
+    <div class="container py-4">
+        <div class="row justify-content-center">
+            <div class="col-lg-9">
+                <div class="section-kicker">About me</div>
+                <h2 class="section-title mb-4">Who I am</h2>
+                <p>
+                    I'm a Software Engineering enthusiast with a background in Project Management
+                    and Industrial Engineering. I'm currently building my skills in Python, Django,
+                    databases, APIs, and web development — learning to turn the same kind of
+                    structured thinking I used on job sites and project plans into working code.
+                </p>
+                <p>
+                    What motivates me is combining technical problem-solving with my experience
+                    managing complex projects, teams, and operations. I like taking on problems
+                    that need both a clear head for logistics and the patience to debug something
+                    line by line, and I've found that background in project management makes me a
+                    more deliberate, organized developer.
+                </p>
+                <p>
+                    Looking ahead, I have a growing interest in helping small businesses grow —
+                    bringing together my software development skills with my operations and
+                    project management background to build practical tools that solve real
+                    problems for people running a business, not just technical exercises.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="skills" class="py-5 py-lg-6 bg-white border-top border-bottom">
+    <div class="container py-4">
+        <div class="text-center mb-5">
+            <div class="section-kicker">What I bring</div>
+            <h2 class="section-title">Skills &amp; Competencies</h2>
+        </div>
+        <div class="row g-4">
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card-soft p-4">
+                    <div class="skill-card-icon mb-3"><i class="bi bi-code-slash"></i></div>
+                    <h3 class="h5 mb-3">Programming &amp; Development</h3>
+                    <div>
+                        <span class="skill-badge">Python</span>
+                        <span class="skill-badge">Django</span>
+                        <span class="skill-badge">SQL</span>
+                        <span class="skill-badge">RESTful APIs</span>
+                        <span class="skill-badge">JSON / XML</span>
+                        <span class="skill-badge">HTTP / Requests</span>
+                        <span class="skill-badge">CRUD operations</span>
+                        <span class="skill-badge">OOP</span>
+                        <span class="skill-badge">Web development</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card-soft p-4">
+                    <div class="skill-card-icon mb-3"><i class="bi bi-database"></i></div>
+                    <h3 class="h5 mb-3">Databases</h3>
+                    <div>
+                        <span class="skill-badge">SQLite</span>
+                        <span class="skill-badge">MariaDB</span>
+                        <span class="skill-badge">Relational DB design</span>
+                        <span class="skill-badge">Joins &amp; Subqueries</span>
+                        <span class="skill-badge">Foreign Keys</span>
+                        <span class="skill-badge">Normalization (1NF–3NF)</span>
+                        <span class="skill-badge">Migrations</span>
+                        <span class="skill-badge">DBMS concepts</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card-soft p-4">
+                    <div class="skill-card-icon mb-3"><i class="bi bi-diagram-3"></i></div>
+                    <h3 class="h5 mb-3">Software Engineering Concepts</h3>
+                    <div>
+                        <span class="skill-badge">REST architecture</span>
+                        <span class="skill-badge">API integration</span>
+                        <span class="skill-badge">Auth &amp; sessions</span>
+                        <span class="skill-badge">Session security</span>
+                        <span class="skill-badge">Database design</span>
+                        <span class="skill-badge">Backend development</span>
+                        <span class="skill-badge">Debugging</span>
+                        <span class="skill-badge">Problem solving</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card-soft p-4">
+                    <div class="skill-card-icon mb-3"><i class="bi bi-tools"></i></div>
+                    <h3 class="h5 mb-3">Tools &amp; Technologies</h3>
+                    <div>
+                        <span class="skill-badge">Git / GitHub</span>
+                        <span class="skill-badge">Microsoft Excel</span>
+                        <span class="skill-badge">Tableau</span>
+                        <span class="skill-badge">Amazon Seller Central</span>
+                        <span class="skill-badge">Procore</span>
+                        <span class="skill-badge">AutoCAD</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card-soft p-4">
+                    <div class="skill-card-icon mb-3"><i class="bi bi-people"></i></div>
+                    <h3 class="h5 mb-3">Professional &amp; Transferable</h3>
+                    <div>
+                        <span class="skill-badge">Project Management</span>
+                        <span class="skill-badge">Agile concepts</span>
+                        <span class="skill-badge">Stakeholder management</span>
+                        <span class="skill-badge">Team coordination</span>
+                        <span class="skill-badge">Vendor management</span>
+                        <span class="skill-badge">Budget management</span>
+                        <span class="skill-badge">Risk identification</span>
+                        <span class="skill-badge">Process improvement</span>
+                        <span class="skill-badge">Data analysis</span>
+                        <span class="skill-badge">Negotiation</span>
+                        <span class="skill-badge">Adaptability</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card-soft p-4">
+                    <div class="skill-card-icon mb-3"><i class="bi bi-kanban"></i></div>
+                    <h3 class="h5 mb-3">Applied Practice</h3>
+                    <div>
+                        <span class="skill-badge">Django + relational models</span>
+                        <span class="skill-badge">SQLite → MariaDB migration</span>
+                        <span class="skill-badge">REST API consumption</span>
+                        <span class="skill-badge">Database-backed apps</span>
+                        <span class="skill-badge">CRUD functionality</span>
+                        <span class="skill-badge">SQL-based data analysis</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section id="education" class="py-5 py-lg-6">
+    <div class="container py-4">
+        <div class="row g-5">
+            <div class="col-lg-5">
+                <div class="section-kicker">Background</div>
+                <h2 class="section-title">Education</h2>
+                <p class="text-muted">From industrial engineering, to project leadership, to software.</p>
+            </div>
+            <div class="col-lg-7">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-role">Software Engineering Bootcamp</div>
+                        <div class="timeline-meta mb-1">University of Chicago</div>
+                        <p class="mb-0">Hands-on program covering Python, Django, databases, REST
+                            APIs, and full-stack web development.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-role">M.Sc. in Project Management</div>
+                        <div class="timeline-meta mb-1">Technological University of Latin America</div>
+                        <p class="mb-0">Graduate studies focused on project planning, risk, budgets,
+                            and leading cross-functional teams.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-role">B.Sc. in Industrial Maintenance Engineering</div>
+                        <div class="timeline-meta mb-1">Technological University of Morelia</div>
+                        <p class="mb-0">Foundation in industrial processes, maintenance systems, and
+                            engineering problem-solving.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="experience" class="py-5 py-lg-6 bg-white border-top border-bottom">
+    <div class="container py-4">
+        <div class="text-center mb-5">
+            <div class="section-kicker">Where I've worked</div>
+            <h2 class="section-title">Work Experience</h2>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-9">
+                <div class="timeline">
+
+                    <div class="timeline-item">
+                        <div class="timeline-role">Supply Chain &amp; Online Sales Manager</div>
+                        <div class="timeline-meta mb-2">Amazon Seller Central (Self-Employed) &middot; Jun 2025 – Oct 2025</div>
+                        <p class="mb-0">Managed end-to-end e-commerce operations, including product
+                            sourcing, inventory management, international logistics, customs, market
+                            analysis, and online sales.</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-role">Project Manager</div>
+                        <div class="timeline-meta mb-2">Global Engineering Group &middot; Nov 2021 – Dec 2023</div>
+                        <p class="mb-0">Led complex projects with budgets exceeding $120M MXN,
+                            coordinating 100+ people across engineering, procurement, suppliers, and
+                            clients. Managed project planning, risk analysis, budgets, schedules, and
+                            operational problem-solving while improving execution and workflow
+                            efficiency.</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-role">Administration Manager</div>
+                        <div class="timeline-meta mb-2">Posada Venus INN &middot; May 2020 – Jul 2021</div>
+                        <p class="mb-0">Managed supplier relationships, purchasing, cash flow, facility
+                            maintenance, and administrative processes, using data and operational
+                            analysis to support business decisions.</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-role">Manufacturing Technician</div>
+                        <div class="timeline-meta mb-2">Lathe Services Ornelas &middot; Mar 2019 – Feb 2020</div>
+                        <p class="mb-0">Worked with manufacturing processes, materials purchasing,
+                            machining, welding, and technical/financial analysis of supplier
+                            proposals.</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="projects" class="py-5 py-lg-6">
+    <div class="container py-4">
+        <div class="text-center mb-5">
+            <div class="section-kicker">Recent work</div>
+            <h2 class="section-title">Projects</h2>
+            <p class="text-muted">A couple of things I've built during the bootcamp, plus what I'm working on now.</p>
+        </div>
+        <div class="row g-4">
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card-soft project-card overflow-hidden">
+                    <div class="p-4">
+                        <h3 class="h5 mb-2">ArtisanHub — Django eCommerce Application</h3>
+                        <p class="text-muted small mb-2">Multi-vendor marketplace</p>
+                        <p>A full-stack Django application where buyers can browse products from
+                            multiple stores, manage a cart, check out, and leave reviews, while
+                            vendors create stores and manage their own products. Includes full
+                            authentication, role-based permissions, and password recovery.</p>
+                        <div class="mb-3">
+                            <span class="tag">Python</span>
+                            <span class="tag">Django</span>
+                            <span class="tag">MariaDB</span>
+                            <span class="tag">REST</span>
+                            <span class="tag">Auth &amp; Roles</span>
+                        </div>
+                        <a href="https://github.com/Pepeelbardo/projects_by_Pepeelbardo/tree/main/eCommers_Art_Store"
+                           target="_blank" rel="noopener" class="btn btn-sm btn-accent">
+                            <i class="bi bi-github me-1"></i> View on GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card-soft project-card overflow-hidden">
+                    <div class="p-4">
+                        <h3 class="h5 mb-2">Hobbies — Static Web Page</h3>
+                        <p class="text-muted small mb-2">HTML &amp; CSS, deployed with GitHub Pages</p>
+                        <p>A short, styled retrospective on four childhood hobbies — videogames,
+                            hiking, skateboarding, and roller skating — built with plain HTML and
+                            embedded CSS, no frameworks or back-end.</p>
+                        <div class="mb-3">
+                            <span class="tag">HTML5</span>
+                            <span class="tag">CSS3</span>
+                            <span class="tag">GitHub Pages</span>
+                        </div>
+                        <a href="https://Pepeelbardo.github.io/childhood_hobbies/"
+                           target="_blank" rel="noopener" class="btn btn-sm btn-accent me-2">
+                            <i class="bi bi-box-arrow-up-right me-1"></i> Live site
+                        </a>
+                        <a href="https://github.com/Pepeelbardo/childhood_hobbies"
+                           target="_blank" rel="noopener" class="btn btn-sm btn-outline-secondary">
+                            <i class="bi bi-github me-1"></i> Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card-soft project-card overflow-hidden">
+                    <div class="p-4">
+                        <div class="d-flex justify-content-between align-items-start mb-2">
+                            <h3 class="h5 mb-0">Abbe Creek Gallery</h3>
+                        </div>
+                        <p class="text-muted small mb-2">
+                            <span class="d-inline-flex align-items-center" style="gap:.4rem;">
+                                <span style="width:8px;height:8px;border-radius:50%;background:var(--accent);display:inline-block;"></span>
+                                In progress
+                            </span>
+                            &middot; Independent client project
+                        </p>
+                        <p>Redesigning a small independent art gallery's website on Squarespace —
+                            my first independent project outside the bootcamp. Every change is
+                            documented before/after in a working log, which I'm turning into a
+                            public case study as the project moves forward.</p>
+                        <div class="mb-3">
+                            <span class="tag">Squarespace</span>
+                            <span class="tag">Web Design</span>
+                            <span class="tag">UX</span>
+                            <span class="tag">Client Work</span>
+                        </div>
+                        <span class="btn btn-sm btn-outline-secondary disabled">
+                            <i class="bi bi-hourglass-split me-1"></i> Case study coming soon
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+</main>
+
+<footer id="contact" class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <h2 class="h3 text-white mb-3">Let's talk</h2>
+                <p class="mb-0">
+                    I'm always open to conversations about software engineering, project work, or
+                    how the two connect. Reach out any time.
+                </p>
+            </div>
+            <div class="col-lg-6">
+                <div class="d-flex align-items-center mb-3">
+                    <div class="contact-icon me-3"><i class="bi bi-envelope"></i></div>
+                    <a href="mailto:jlsarabian@outlook.com">jlsarabian@outlook.com</a>
+                </div>
+                <div class="d-flex align-items-center mb-3">
+                    <div class="contact-icon me-3"><i class="bi bi-linkedin"></i></div>
+                    <a href="https://www.linkedin.com/in/jlsarabian04/" target="_blank" rel="noopener">linkedin.com/in/jlsarabian04</a>
+                </div>
+                <div class="d-flex align-items-center">
+                    <div class="contact-icon me-3"><i class="bi bi-github"></i></div>
+                    <a href="https://github.com/Pepeelbardo" target="_blank" rel="noopener">github.com/Pepeelbardo</a>
+                </div>
+            </div>
+        </div>
+        <hr class="my-4 border-secondary">
+        <p class="text-center mb-0 small">&copy; <span id="year"></span> Jose Luis Sarabia</p>
+    </div>
+</footer>
+
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Highlight nav link for section in view
+    const sections = document.querySelectorAll('section[id], header[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+    const onScroll = () => {
+        let current = '';
+        sections.forEach(sec => {
+            const top = sec.offsetTop - 90;
+            if (window.scrollY >= top) current = sec.getAttribute('id');
+        });
+        navLinks.forEach(link => {
+            link.classList.toggle('active', link.getAttribute('href') === '#' + current);
+        });
+    };
+    window.addEventListener('scroll', onScroll);
+    onScroll();
+</script>
+
+</body>
+</html>
